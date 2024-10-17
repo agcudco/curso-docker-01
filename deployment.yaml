@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hola-mundo
+  labels:
+    app: mi-app
+spec: #especificaciones
+  replicas: 3  # Número de réplicas del pod
+  selector:
+    matchLabels:
+      app: mi-app
+  template:
+    metadata:
+      labels:
+        app: mi-app
+    spec:
+      containers:
+      - name: mi-app-container
+        image: mialvarez/actividad2_docker:latest  # Cambie esto por su imagen de Docker
+        ports:
+        - containerPort: 5000  # Puerto expuesto por el contenedor
